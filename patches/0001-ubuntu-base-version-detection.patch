@@ -1,0 +1,16 @@
+--- a/prepare.cirrus.driver.sh
++++ b/prepare.cirrus.driver.sh
+@@ -3,7 +3,12 @@
+ set -euo pipefail
+ 
+ kernel_release="${1:-$(uname -r)}"
+-kernel_version="${kernel_release%%-*}"
++# Ubuntu HWE kernels report their real upstream base in /proc/version_signature.
++# Use it so the downloaded tarball matches the installed kernel's ABI (fixes #66).
++if [[ -z ${MACBOOK12_FORCE_KERNEL_VERSION:-} && -r /proc/version_signature ]]; then
++  MACBOOK12_FORCE_KERNEL_VERSION="$(awk '{print $NF}' /proc/version_signature)"
++fi
++kernel_version="${MACBOOK12_FORCE_KERNEL_VERSION:-${kernel_release%%-*}}"
+ kernel_version="${kernel_version%%_*}"
+ 
+ if [[ ! $kernel_version =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?([.-]rc[0-9]+)?$ ]]; then
