@@ -181,7 +181,64 @@ sudo ./install.bluetooth.sh -u && sudo depmod -a
 sudo bash scripts/install-all.sh
 ```
 
-## 五、致谢
+## 五、固件残缺侦查结论（2026-09-01 深挖后定稿）
+
+对"驱动加载但 dmesg 报固件缺失"的两条做了穷尽侦查，结论是**都不用补**：
+
+### 5.1 蓝牙 `.hcd` —— 正常，别装
+
+`dmesg` 报 `BCM: firmware Patch file not found, tried: 'brcm/BCM.hcd'` + `failed to write update baudrate (-16)`。
+
+**leifliddy（蓝牙驱动作者）在 [issue #10](https://github.com/leifliddy/macbook12-bluetooth-driver/issues/10) 的官方定论**：
+> "Yes, that's normal. Apparently, the Bluetooth controller already contains Apple's custom firmware."
+> （正常，控制器 ROM 里自带 Apple 固件。）
+
+- 该 `.hcd` 找不到是**预期行为**，控制器跑 ROM 模式 115200 波特率，功能完整。
+- **切勿装通用 `.hcd`**：Apple 固件交换了 device wake / host wake 引脚功能（见 [Dunedan/mbp-2016-linux #29 评论](https://github.com/Dunedan/mbp-2016-linux/issues/29)），装通用固件会破坏引脚行为反而搞坏蓝牙。
+- 从 Apple 官方下载的 "Bluetooth Update for MacBook" (157MB DMG) 经 dmg2img + 7z + cpio 逐层提取，确认只有 SMC/EFI 更新包，**里面本就没有裸蓝牙固件**——印证固件就在 ROM 里。
+
+### 5.2 WiFi `brcmfmac4350c2-pcie` —— 只 clm_blob 真缺，且影响小
+
+`dmesg` 报 4 个文件 `failed with error -2`，逐条核对 brcmfmac 实况：
+
+| 文件 | 实况 | 要不要补 |
+|---|---|---|
+| `...Apple Inc.-MacBook9,1.bin`（定制固件）| 通用版 fallback 成功，7.35.180.133 正常加载 | ❌ |
+| `...pcie.txt`（NVRAM 板级配置）| 缺失但**静默兜底**（芯片自带 NVRAM，和 macOS 同源，零报错）| ❌ |
+| `...pcie.clm_blob`（法规/信道库）| 明确警告 `device may have limited channels available` | ✅ 真缺 |
+| `...pcie.txcap_blob`（TX 功率校准）| 缺失，功能正常 | 🟡 次要 |
+
+- 侦查结论：GitHub / AUR / linux-firmware 官方库**都没有** MacBook9,1 的 clm_blob/txcap_blob，唯一来源是从 macOS `AirPortBrcm4360.kext` 提取（需下载 1.5–6GB 安装器）。
+- **影响面**：只限 5GHz 法规信道完整度（DFS 等）；2.4GHz 完全正常。
+- **决定**：投入产出比低，**保持现状不补**。日后若强需 5GHz 满血，按"方案草案"（macOS combo update 提取 + 启动 guard 自动回滚）执行即可。
+
+### 5.3 驱动体检总账（17 项全绿）
+
+| 设备 | 驱动 | 来源 |
+|---|---|---|
+| HD Graphics 515 | i915 | 原生 |
+| USB3 xHCI | xhci_hcd | 原生 |
+| Serial IO I2C/UART/SPI | intel-lpss | 原生 |
+| CSME HECI | mei_me | 原生 |
+| HD Audio + CS4208 codec | snd_hda_intel + cs420x | DKMS 改造版 |
+| SMBus | i801_smbus | 原生 |
+| Apple S3X NVMe | nvme | 原生 |
+| BCM4350 WiFi | brcmfmac | 原生（固件见 5.2）|
+| FaceTime HD 摄像头 | facetimehd | DKMS |
+| PCIe 根端口/主板 | pcieport/skl_uncore | 原生 |
+| Apple SPI 键盘/触控板 | applespi | 原生(6.11+) |
+| 蓝牙 BCM4350C0 | hci_uart + hci_bcm | DKMS 修补版 |
+| 电池 BAT0 | applesmc | 原生 |
+| CPU 微码 | intel-microcode | 原生 |
+| 38 颗温度探头 | applesmc + coretemp + nvme | lm-sensors 已装 |
+| 屏幕背光 | acpi_video0 | 原生 |
+| 环境光感（自动亮度）| iio:device0 | 原生 |
+
+dmesg 错误/超时扫描**零条**硬故障（仅上述两条无害固件提示）。内核 taint=12288 仅 DKMS 常规标记（randstruct + 用户请求）。**机器处于完全体状态。**
+
+---
+
+## 六、致谢
 
 - [leifliddy/macbook12-audio-driver](https://github.com/leifliddy/macbook12-audio-driver) —— A1534 CS4208 逆向驱动
 - [davidjo/snd_hda_macbookpro](https://github.com/davidjo/snd_hda_macbookpro) —— 逆向源头
