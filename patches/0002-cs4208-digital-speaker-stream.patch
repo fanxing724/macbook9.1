@@ -1,0 +1,85 @@
+diff --git a/patch_cirrus/patch_cirrus_a1534_pcm.h b/patch_cirrus/patch_cirrus_a1534_pcm.h
+index 452f420..97cf91d 100644
+--- a/patch_cirrus/patch_cirrus_a1534_pcm.h
++++ b/patch_cirrus/patch_cirrus_a1534_pcm.h
+@@ -6,6 +6,8 @@
+ static unsigned int cs4208_cur_stream_tag;	/* running PCM stream tag (0 = none) */
+ static unsigned int cs4208_cur_format;		/* running PCM HDA format word */
+ static int cs4208_cur_hp = -1;			/* last HP jack state (-1 = unknown) */
++static void cs4208_invalidate_converter_cache(struct hda_codec *codec,
++					    hda_nid_t nid);
+ /* cs_4208_hp_jack_callback is defined further down, after get_hda_cvt_setup_4208,
+  * which it needs to invalidate the converter format cache. */
+ 
+@@ -19,7 +21,21 @@ static int cs_4208_playback_pcm_prepare(struct hda_pcm_stream *hinfo,
+ 	codec_dbg(codec, "cs_4208_playback_pcm_prepare start");
+ 	cs4208_cur_stream_tag = stream_tag;	/* cache for live jack re-pointing */
+ 	cs4208_cur_format = format;
++	/* The macOS initialization writes raw stream/format verbs behind the
++	 * HDA core's cache. Force it to check the live converter on every prepare,
++	 * including a reopen with the same PCM parameters. */
++	cs4208_invalidate_converter_cache(codec, hinfo->nid);
+ 	snd_hda_codec_setup_stream(codec, hinfo->nid, stream_tag, 0, format);
++	/* Keep the original A1534 playback/power path, but mirror the live PCM
++	 * parameters onto the digital speaker converter. play_a1534() seeds 0x0a
++	 * with a hardcoded four-channel format and stream 1; modern stereo PCM
++	 * needs its actual format/tag here, independently of the legacy 0x04 DAC. */
++	if (hinfo->nid == 0x04) {
++		snd_hda_codec_write(codec, 0x0a, 0,
++				    AC_VERB_SET_STREAM_FORMAT, format);
++		snd_hda_codec_write(codec, 0x0a, 0,
++				    AC_VERB_SET_CHANNEL_STREAMID, stream_tag << 4);
++	}
+ 
+ 	if (spec->gen.pcm_playback_hook)
+ 		spec->gen.pcm_playback_hook(hinfo, codec, substream, HDA_GEN_PCM_ACT_PREPARE);
+@@ -75,6 +91,18 @@ get_hda_cvt_setup_4208(struct hda_codec *codec, hda_nid_t nid)
+ 	return p;
+ }
+ 
++static void cs4208_invalidate_converter_cache(struct hda_codec *codec,
++					    hda_nid_t nid)
++{
++	struct hda_cvt_setup *p = get_hda_cvt_setup_4208(codec, nid);
++
++	if (p) {
++		p->stream_tag = 0;
++		p->channel_id = 0;
++		p->format_id = 0;
++	}
++}
++
+ static int cs_4208_playback_pcm_open(struct hda_pcm_stream *hinfo,
+ 				     struct hda_codec *codec,
+ 				     struct snd_pcm_substream *substream)
+@@ -94,7 +122,7 @@ static int cs_4208_playback_pcm_open(struct hda_pcm_stream *hinfo,
+ 			err = headphones_a1534(codec);
+ 		} else { // output to speakers
+ 			codec_dbg(codec, "cs_4208_playback_pcm_open playing to speakers");
+-			hinfo->nid = 0x04; // speaker converter (DAC) -> speaker pin 0x1d
++			hinfo->nid = 0x04; // legacy playback path; prepare also programs digital 0x0a
+ 			err = play_a1534(codec);
+ 		}
+ 	
+@@ -301,7 +329,7 @@ int cs_4208_build_pcms_explicit(struct hda_codec *codec)
+ 		return -ENOMEM;
+ 
+ 	info->stream[SNDRV_PCM_STREAM_PLAYBACK] = cs4208_pcm_analog_playback;
+-	info->stream[SNDRV_PCM_STREAM_PLAYBACK].nid = 0x04; // 0x04 is for speakers 0x02 is for headphones
++	info->stream[SNDRV_PCM_STREAM_PLAYBACK].nid = 0x04; // preserve A1534 playback/power path
+ 	info->stream[SNDRV_PCM_STREAM_PLAYBACK].channels_max = 4;
+ 
+ 	info->pcm_type = HDA_PCM_TYPE_AUDIO;
+@@ -371,6 +399,12 @@ static void cs_4208_hp_jack_callback(struct hda_codec *codec,
+ 			snd_hda_codec_setup_stream(codec, 0x04,
+ 						   cs4208_cur_stream_tag, 0,
+ 						   cs4208_cur_format);
++			snd_hda_codec_write(codec, 0x0a, 0,
++					    AC_VERB_SET_STREAM_FORMAT,
++					    cs4208_cur_format);
++			snd_hda_codec_write(codec, 0x0a, 0,
++					    AC_VERB_SET_CHANNEL_STREAMID,
++					    cs4208_cur_stream_tag << 4);
+ 		}
+ 	}
+ }

@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-20T23:19:34.974567+08:00",
+  "status": "experimental-unresolved-speakers-silent",
+  "machine": "MacBook9,1",
+  "distribution": "Ubuntu 26.04.1",
+  "kernel_release": "7.0.0-38-generic",
+  "kernel_package_version": "7.0.0-38.38",
+  "ubuntu_source_package": "linux-source-7.0.0=7.0.0-38.38",
+  "reference_commit": "21be1a3305015df7c065ffa5877b846c46fc7fb1",
+  "driver_repo": "https://github.com/leifliddy/macbook12-audio-driver",
+  "driver_commit": "4cdfcdbac2db3f300cc45d9679cfd21df6590a8a",
+  "driver_sources_modified": true,
+  "patch": "patches/0002-cs4208-digital-speaker-stream.patch",
+  "compile_jobs": 1,
+  "module_sha256": "297a0a018ef3f45a80dd2b0e6f6716a88858b6fe35e3ff85f14bda0fb1dc5369",
+  "archive_sha256": "7f2e5632cec5c0723bde9643b6b2588da41cd24c95541943f8f9e005bda1235e",
+  "imported_symbol_versions_checked": 50,
+  "playback_register_checks": "two opens: S16_LE 44100Hz 2ch; format=0x4011, stream=1, D0, playback_exit=0",
+  "human_audibility_confirmation": "FAILED: two independent voice tests completely silent; later temporary format switching also silent",
+  "cold_boot_test": "not performed",
+  "headphones_and_microphone_tests": "not performed",
+  "installer_validation": "py_compile and read-only --check only; installation not executed"
+}

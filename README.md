@@ -1,4 +1,16 @@
-# MacBook9,1 (2016 12" MacBook) · Ubuntu 24.04 修复手记
+# MacBook9,1 (2016 12" MacBook) · Ubuntu 硬件修复手记
+
+## 2026-10-20：Ubuntu 26.04 音频诊断归档（仍无声）
+
+**此分支保存排查进度，不是已修复的发行包。重新编译解决了旧模块 ABI 不匹配的问题，但多轮扬声器听感测试仍失败。请勿将编译通过、服务 active 或播放退出码 0 当作声音恢复。**
+
+- [含源码和编译模块的诊断包](downloads/macbook91-audio-ubuntu26.04-7.0.0-38.38-diagnostic.tar.gz)
+- [下载校验](downloads/macbook91-audio-ubuntu26.04-7.0.0-38.38-diagnostic.tar.gz.sha256)
+- [发现、验证结果与回退边界](docs/ubuntu26.04-audio.md)
+- [未解决无声问题的实验补丁](patches/0002-cs4208-digital-speaker-stream.patch)
+- [构建与验收状态](packages/ubuntu26.04/7.0.0-38.38/manifest.json)
+
+二进制仅针对 **Ubuntu 26.04 的 `linux-image-7.0.0-38-generic=7.0.0-38.38`** 构建。相同 `uname -r` 的 24.04 HWE 模块不可混用。下方是 24.04 历史记录，不应直接用于 26.04。
 
 本仓库记录这台机器在 Ubuntu 24.04 上两大硬件顽疾（内置扬声器无声、蓝牙热重启冻死）的
 完整诊断过程与最终修复方案，便于系统重装后快速复原。

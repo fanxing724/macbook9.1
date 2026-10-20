@@ -1,0 +1,23 @@
+{
+  "time": "2026-10-20T23:04:32.575620+08:00",
+  "runs": [
+    {
+      "attempt": 1,
+      "format": "0x4011",
+      "converter": "0x10",
+      "power": "0x0",
+      "alsa_params": "access: MMAP_INTERLEAVED\nformat: S16_LE\nsubformat: STD\nchannels: 2\nrate: 44100 (44100/1)\nperiod_size: 1024\nbuffer_size: 32768\n",
+      "playback_exit": 0
+    },
+    {
+      "attempt": 2,
+      "format": "0x4011",
+      "converter": "0x10",
+      "power": "0x0",
+      "alsa_params": "access: MMAP_INTERLEAVED\nformat: S16_LE\nsubformat: STD\nchannels: 2\nrate: 44100 (44100/1)\nperiod_size: 1024\nbuffer_size: 32768\n",
+      "playback_exit": 0
+    }
+  ],
+  "corrective_register_writes": false,
+  "human_audibility_confirmation": "FAILED: both voice tests completely silent (user feedback)"
+}
