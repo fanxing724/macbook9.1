@@ -1,3 +1,16 @@
+<!-- fanxing-style:start -->
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://fanxing724.github.io/new-make/fanxing724/projects/macbook9.1/cover.light.svg">
+  <img alt="MacBook 9,1 · 修复手记" src="https://fanxing724.github.io/new-make/fanxing724/projects/macbook9.1/cover.svg" width="100%">
+</picture>
+
+**旧设备的下一页，写在一次次排查里。**
+
+让一台旧 MacBook 继续工作，需要一点耐心，也需要保留证据。这里记录系统、驱动与硬件的排查过程；实验成功与否，以实际使用结果为准。
+
+<sub>番星 / 星轨手记 · <a href="https://fanxing724.github.io/new-make/fanxing724/projects/style.html">风格样板</a> · <a href="https://fanxing724.github.io/">个人小站</a></sub>
+<!-- fanxing-style:end -->
+
 # MacBook9,1 · Ubuntu 硬件修复手记
 
 记录 2016 款 12 英寸 MacBook 的音频、蓝牙等硬件修复，并保存对应源码、编译模块和配置，方便日后恢复。
