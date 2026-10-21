@@ -21,6 +21,7 @@
 
 ## 下载与使用
 
+- [GitHub Release 发布产物（Assets）](https://github.com/fanxing724/macbook9.1/releases/tag/audio-ubuntu26.04-20261021)
 - [完整恢复 ZIP：源码、模块、配置、安装脚本和说明](downloads/macbook91-audio-ubuntu26.04-7.0.0-38.38-fixed-20261021.zip)
 - [ZIP SHA-256](downloads/macbook91-audio-ubuntu26.04-7.0.0-38.38-fixed-20261021.zip.sha256)
 - [完整修复过程、安装、验证和回退](docs/ubuntu26.04-audio-fixed.md)

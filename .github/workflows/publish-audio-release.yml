@@ -1,0 +1,50 @@
+name: Publish verified audio package
+
+on:
+  push:
+    tags:
+      - audio-ubuntu26.04-20261021
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audio-release-20261021
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: audio-ubuntu26.04-20261021
+      ASSET: downloads/macbook91-audio-ubuntu26.04-7.0.0-38.38-fixed-20261021.zip
+    steps:
+      - name: Check out the tagged revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: audio-ubuntu26.04-20261021
+          persist-credentials: false
+
+      - name: Verify the existing package
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd downloads
+          sha256sum -c macbook91-audio-ubuntu26.04-7.0.0-38.38-fixed-20261021.zip.sha256
+          unzip -t macbook91-audio-ubuntu26.04-7.0.0-38.38-fixed-20261021.zip
+
+      - name: Publish Release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh release create "$RELEASE_TAG" "$ASSET" "$ASSET.sha256" \
+            --verify-tag \
+            --title 'MacBook9,1 扬声器修复 · Ubuntu 26.04 · 2026-10-21' \
+            --notes-file docs/releases/audio-ubuntu26.04-20261021.md
