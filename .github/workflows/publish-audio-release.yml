@@ -2,6 +2,10 @@ name: Publish verified audio package
 
 on:
   push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/publish-audio-release.yml
     tags:
       - audio-ubuntu26.04-20261021
   workflow_dispatch:
