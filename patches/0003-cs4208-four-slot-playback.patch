@@ -1,0 +1,70 @@
+--- a/patch_cirrus/cs420x.c
++++ b/patch_cirrus/cs420x.c
+@@ -742,6 +742,15 @@
+ 			   cs4208_fixups);
+ 	snd_hda_apply_fixup(codec, HDA_FIXUP_ACT_PRE_PROBE);
+ 
++	/* A1534's active-low amplifier supply FETs are GPIO4/5. Preserve
++	 * the reviewed setup_a1534() GPIO regime through cs_init()/resume,
++	 * rather than letting the fallback GPIO0 fixup disable those pins. */
++	if (codec->core.subsystem_id == 0x106b6500) {
++		spec->gpio_mask = 0x37;
++		spec->gpio_dir = 0x31;
++		spec->gpio_data = 0x01;
++	}
++
+ 	snd_hda_override_wcaps(codec, 0x18,
+ 			       get_wcaps(codec, 0x18) | AC_WCAP_STEREO);
+ 	cs4208_fix_amp_caps(codec, 0x18);
+--- a/patch_cirrus/patch_cirrus_a1534_pcm.h
++++ b/patch_cirrus/patch_cirrus_a1534_pcm.h
+@@ -21,6 +21,10 @@
+ 	codec_dbg(codec, "cs_4208_playback_pcm_prepare start");
+ 	cs4208_cur_stream_tag = stream_tag;	/* cache for live jack re-pointing */
+ 	cs4208_cur_format = format;
++	/* The desktop PCM carries four TDM slots. The headphone DAC takes
++	 * only the first stereo pair of that same DMA stream. */
++	if (hinfo->nid == 0x02)
++		format = (format & ~0xfu) | 1u;
+ 	/* The macOS initialization writes raw stream/format verbs behind the
+ 	 * HDA core's cache. Force it to check the live converter on every prepare,
+ 	 * including a reopen with the same PCM parameters. */
+@@ -35,6 +39,10 @@
+ 				    AC_VERB_SET_STREAM_FORMAT, format);
+ 		snd_hda_codec_write(codec, 0x0a, 0,
+ 				    AC_VERB_SET_CHANNEL_STREAMID, stream_tag << 4);
++		/* This register is independent of STREAM_FORMAT and excluded
++		 * from regmap replay. Reassert it even when its readback matches. */
++		snd_hda_codec_write(codec, 0x0a, 0,
++				    AC_VERB_SET_CVT_CHAN_COUNT, (format & 0xf));
+ 	}
+ 
+ 	if (spec->gen.pcm_playback_hook)
+@@ -144,7 +152,7 @@
+ 
+ static const struct hda_pcm_stream cs4208_pcm_analog_playback = {
+ 	.substreams = 1,
+-	.channels_min = 2,
++	.channels_min = 4,
+ 	.channels_max = 4,
+ 	.rates = SNDRV_PCM_RATE_44100,
+ 	.formats = SNDRV_PCM_FMTBIT_S16_LE, //|SNDRV_PCM_FMTBIT_S24_LE
+@@ -384,7 +392,7 @@
+ 			p->stream_tag = 0; p->channel_id = 0; p->format_id = 0;
+ 			snd_hda_codec_setup_stream(codec, 0x02,
+ 						   cs4208_cur_stream_tag, 0,
+-						   cs4208_cur_format);
++						   (cs4208_cur_format & ~0xfu) | 1u);
+ 		}
+ 		/* Silence the speaker by disabling its output pin (0x1d) without
+ 		 * touching the converters/stream the headphones now use.
+@@ -405,6 +413,9 @@
+ 			snd_hda_codec_write(codec, 0x0a, 0,
+ 					    AC_VERB_SET_CHANNEL_STREAMID,
+ 					    cs4208_cur_stream_tag << 4);
++			snd_hda_codec_write(codec, 0x0a, 0,
++					    AC_VERB_SET_CVT_CHAN_COUNT,
++					    cs4208_cur_format & 0xf);
+ 		}
+ 	}
+ }

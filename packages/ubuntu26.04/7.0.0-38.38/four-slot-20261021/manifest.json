@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-21",
+  "status": "speakers-working-current-session-human-confirmed",
+  "machine": "MacBook9,1",
+  "codec_subsystem_id": "0x106b6500",
+  "distribution": "Ubuntu 26.04.1",
+  "kernel_release": "7.0.0-38-generic",
+  "kernel_package_version": "7.0.0-38.38",
+  "ubuntu_source_package": "linux-source-7.0.0=7.0.0-38.38",
+  "driver_upstream": "https://github.com/leifliddy/macbook12-audio-driver",
+  "driver_upstream_commit": "4cdfcdbac2db3f300cc45d9679cfd21df6590a8a",
+  "patches": [
+    "patches/0002-cs4208-digital-speaker-stream.patch",
+    "patches/0003-cs4208-four-slot-playback.patch"
+  ],
+  "source_directory": "drivers/macbook91-cs4208",
+  "source_files_sha256": {
+    "COPYING": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+    "Makefile_cirrus": "b7f05161d02ab6854350c2195731b9c125eed43cbf15801758f6435707c84390",
+    "Makefile_cs420x": "2887e84352be08b5847dcb3a3500384d8c46a1c37c0014628be6bd9fbe83c354",
+    "dkms.conf": "248f564d6f4e9cab636b833fd9a90d9159fa852da1b4e319085f4d9a53aa4268",
+    "patch_cirrus/Makefile_cirrus": "abe57190c5adf09b1276b712cd1150038e61c93e020b562cfd1eb07aad6ee50d",
+    "patch_cirrus/Makefile_cs420x": "fc95605414785d92be55adc7e2b3ce8da20caaf71df78c0aeab675ad400a4c0f",
+    "patch_cirrus/cs420x.c": "2ca920b8150775bc05e979759bad911a92164c84c056ad0813460bac69296eb1",
+    "patch_cirrus/patch_cirrus.c": "86acea4fe83d1ae2e2711e14dda994c218e6e05070d946bdff84a4e8e5ff4a7e",
+    "patch_cirrus/patch_cirrus_a1534_pcm.h": "fdac9faec665df00c9e84589a51809ab07e3206afb953792184fee10120dc244",
+    "patch_cirrus/patch_cirrus_a1534_setup.h": "cc77fb60e44cef0bbe689deb52dbd18fb571c02a8e70599612f388907e359544",
+    "prepare.cirrus.driver.sh": "e132c939ea5018739aa08dc31bb609bd8a93a60ad574e76979d5190598f7f856"
+  },
+  "loaded_srcversion": "7DE464D96696BDDA89F5433",
+  "module_sha256": "a0b31ec5f382b5dedf3ef25c170bbe34e8701583c799027ac194b0c1e6032a4d",
+  "dkms_archive_sha256": "791fd515fcff5822ed4aeaf4c05a90a64ff8bfc431be3195b6d48c79b1f5127d",
+  "compile_jobs": 1,
+  "imported_symbol_versions_checked": 50,
+  "human_audibility_confirmation": "Two independent ordinary desktop playbacks, 7 seconds idle between them; user confirmed both audible and normal.",
+  "manual_register_writes_during_final_validation": false,
+  "wireplumber_restart_validation": "Four-channel profile and hardware parameters restored; ordinary playback exited 0.",
+  "not_tested": [
+    "cold boot",
+    "system suspend/resume",
+    "headphone switching",
+    "microphone recording",
+    "fresh installation using published installer"
+  ],
+  "installer_validation": "Syntax compilation and read-only --check passed; native archive structure, source and binary hashes verified. Fresh install and privileged DKMS import not executed."
+}

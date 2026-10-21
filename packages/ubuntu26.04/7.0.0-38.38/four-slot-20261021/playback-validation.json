@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-21",
+  "loaded_srcversion": "7DE464D96696BDDA89F5433",
+  "corrective_register_writes": false,
+  "runs": [
+    {
+      "attempt": 1,
+      "hw_params": "access: MMAP_INTERLEAVED\nformat: S16_LE\nsubformat: STD\nchannels: 4\nrate: 44100 (44100/1)\nperiod_size: 1024\nbuffer_size: 32768\n",
+      "playback_exit": 0
+    },
+    {
+      "attempt": 2,
+      "hw_params": "access: MMAP_INTERLEAVED\nformat: S16_LE\nsubformat: STD\nchannels: 4\nrate: 44100 (44100/1)\nperiod_size: 1024\nbuffer_size: 32768\n",
+      "playback_exit": 0
+    }
+  ],
+  "human_confirmation": "Both independent normal desktop playbacks audible and normal, explicitly confirmed by user.",
+  "wireplumber_restart": {
+    "profile_restored": true,
+    "hardware_params": "S16_LE / 44100 Hz / 4 channels",
+    "playback_exit": 0
+  },
+  "not_tested": [
+    "cold boot",
+    "system suspend/resume",
+    "headphone switching",
+    "microphone recording",
+    "fresh installation using published installer"
+  ]
+}

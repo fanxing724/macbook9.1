@@ -1,0 +1,14 @@
+KERNELRELEASE ?= $(shell uname -r)
+KERNELDIR := /lib/modules/$(KERNELRELEASE)
+
+KERNELBUILD := $(KERNELDIR)/build
+
+all:
+	$(MAKE) -C $(KERNELBUILD) M=$(shell pwd)/build/hda/codecs/cirrus modules
+
+clean:
+	$(MAKE) -C $(KERNELBUILD) M=$(shell pwd)/build/hda/codecs/cirrus clean
+
+install:
+	install -D -m 0644 $(shell pwd)/build/hda/codecs/cirrus/snd-hda-codec-cs420x.ko $(KERNELDIR)/updates/snd-hda-codec-cs420x.ko
+	depmod -a $(KERNELRELEASE)
