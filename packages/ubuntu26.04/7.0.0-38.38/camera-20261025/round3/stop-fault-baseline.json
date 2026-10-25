@@ -1,0 +1,12 @@
+{
+  "module_srcversion": "9A5C9B3DB2BA89880BDB11E",
+  "event_time": "2026-10-26T00:14:05+08:00",
+  "trigger": "SIGTERM sent by timeout to own GStreamer preview after 180 seconds",
+  "IO_timeouts": 1,
+  "camera_DMA_faults": 3,
+  "fault": "DMA Write NO_PASID, device 03:00.0, PTE Write access is not set",
+  "subsequent_30_frame_capture_succeeded": true,
+  "source_finding": "wait_event_interruptible_timeout treats pending exit signal as timeout and stop_streaming then releases queued DMA buffers before firmware acknowledges stop",
+  "first_patch_attempt": "Replacing the wait alone delayed commands to their timeout limit because IRQ paths still used wake_up_interruptible. This temporary module was not installed into DKMS.",
+  "final_patch_scope": "bounded non-interruptible firmware completion wait plus matching wake_up_all in all channel IRQ wakeups"
+}

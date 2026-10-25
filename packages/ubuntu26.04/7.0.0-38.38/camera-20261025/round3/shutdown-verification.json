@@ -1,0 +1,38 @@
+[
+  {
+    "signal": "SIGINT",
+    "capture_was_running": true,
+    "process_exit_code": 0,
+    "stop_seconds": 0.1656,
+    "reopen_30frames_exit_code": 0,
+    "reopen_stderr": "",
+    "IO_timeouts": 0,
+    "camera_DMA_faults": 0,
+    "Data_Abort": 0,
+    "SIF_errors": 0
+  },
+  {
+    "signal": "SIGTERM",
+    "capture_was_running": true,
+    "process_exit_code": -15,
+    "stop_seconds": 0.1155,
+    "reopen_30frames_exit_code": 0,
+    "reopen_stderr": "",
+    "IO_timeouts": 0,
+    "camera_DMA_faults": 0,
+    "Data_Abort": 0,
+    "SIF_errors": 0
+  },
+  {
+    "signal": "SIGKILL",
+    "capture_was_running": true,
+    "process_exit_code": -9,
+    "stop_seconds": 0.1148,
+    "reopen_30frames_exit_code": 0,
+    "reopen_stderr": "",
+    "IO_timeouts": 0,
+    "camera_DMA_faults": 0,
+    "Data_Abort": 0,
+    "SIF_errors": 0
+  }
+]

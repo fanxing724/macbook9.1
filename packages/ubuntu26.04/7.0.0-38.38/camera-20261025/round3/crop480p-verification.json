@@ -1,0 +1,19 @@
+{
+  "label": "crop480p",
+  "start": "2026-10-26T00:07:05.081737+08:00",
+  "end": "2026-10-26T00:08:35.691188+08:00",
+  "requested_duration_seconds": 90,
+  "wall_seconds": 90.704,
+  "exit_code": 0,
+  "frames": 2702,
+  "fps_reported": "30.01",
+  "output_duration_us": 90001217,
+  "progress": "end",
+  "SIF_errors": 70,
+  "Data_Abort": 0,
+  "IO_timeouts": 0,
+  "ffmpeg_warning_log_bytes": 0,
+  "active_module_srcversion": "C71A9FE976453B8E2E4B5C3",
+  "firmware_sha256": "240ef2e991f1d089d8228ce11d92b66bfa4b3d7289ec4fee228b64a713024330",
+  "images_saved": false
+}

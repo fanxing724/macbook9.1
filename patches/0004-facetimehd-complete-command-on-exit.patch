@@ -1,0 +1,41 @@
+--- a/fthd_drv.c
++++ b/fthd_drv.c
+@@ -186,19 +186,19 @@
+ 
+ 	if (chan == dev_priv->channel_io) {
+ 		pr_debug("IO channel ready\n");
+-		wake_up_interruptible(&chan->wq);
++		wake_up_all(&chan->wq);
+ 		return;
+ 	}
+ 
+ 	if (chan == dev_priv->channel_buf_h2t) {
+ 		pr_debug("H2T channel ready\n");
+-		wake_up_interruptible(&chan->wq);
++		wake_up_all(&chan->wq);
+ 		return;
+ 	}
+ 
+ 	if (chan == dev_priv->channel_debug) {
+ 		pr_debug("DEBUG channel ready\n");
+-		wake_up_interruptible(&chan->wq);
++		wake_up_all(&chan->wq);
+ 		return;
+ 	}
+ 
+--- a/fthd_ringbuf.c
++++ b/fthd_ringbuf.c
+@@ -124,7 +124,12 @@
+ 
+ int fthd_channel_wait_ready(struct fthd_private *dev_priv, struct fw_channel *chan, u32 entry, int timeout)
+ {
+-	if (wait_event_interruptible_timeout(chan->wq,
++	/* The command has already been posted to firmware. A pending signal
++	 * must not make stream teardown release DMA buffers before the stop
++	 * command is acknowledged. Keep the existing bounded timeout, but
++	 * finish the firmware transaction even when its caller is exiting.
++	 */
++	if (wait_event_timeout(chan->wq,
+ 					     (FTHD_S2_MEM_READ(entry + FTHD_RINGBUF_ADDRESS_FLAGS) & 1) ^ (chan->type != 0),
+ 		msecs_to_jiffies(timeout)) <= 0) {
+ 		dev_err(&dev_priv->pdev->dev, "%s: timeout\n", chan->name);

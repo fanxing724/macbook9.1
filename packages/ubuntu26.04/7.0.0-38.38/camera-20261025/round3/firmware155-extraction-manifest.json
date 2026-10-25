@@ -1,0 +1,56 @@
+{
+  "source_url": "https://swcdn.apple.com/content/downloads/32/09/041-89042-A_XVZ2U8XKG2/06ub1qfep6wv3g8bb68smwt3ac25xyng83/BootCampESD.pkg",
+  "BootCampESD_sha256": "6e1213a2a8abbc7815f342010f4e9c14aaaab27c2086d1d3fc1a5f1b41859bc9",
+  "AppleCamera_sys_sha256": "0394f64872280d4833ecd1b4d262d07e017ad5b7ebb84130450cb63630323c36",
+  "firmware_release": "S2ISP-01.55.00",
+  "extracted_files": {
+    "firmware.bin": {
+      "size": 1417220,
+      "sha256": "05c058f83da6b1085060fb755da342e88327b19f4efae92e7975b456c18ddab1"
+    },
+    "8221_01XX.dat": {
+      "size": 30240,
+      "sha256": "2e041686cf2484345b08b18207266abe725f41f8869e04d427aa092071d9edde"
+    },
+    "1222_01XX.dat": {
+      "size": 20080,
+      "sha256": "f15271894d1bc3d9c3b9af6a310f97ac1648a66f6b41ccb0822289a8c93d4a5b"
+    },
+    "1871_01XX.dat": {
+      "size": 19040,
+      "sha256": "bf36fbde0668ab7e44368b584f9fa64b5945b01003d04c6e3c6f22c0be0fd5f3"
+    },
+    "9112_01XX.dat": {
+      "size": 33072,
+      "sha256": "b93647de457137f11ab6f602d0c5bc113d7896a22597c3fd445e2ca87468f3a3"
+    },
+    "1571_01XX.dat": {
+      "size": 18656,
+      "sha256": "67c746b3762fba633fd67943e332487cc20cb6678d93f3e56c79b4311ee9cd4d"
+    },
+    "1771_01XX.dat": {
+      "size": 19040,
+      "sha256": "756c2bb7c5e55b395449e43a0be1cb7c40c37dfc6c2b5abfaffb8ae70ff0fc4b"
+    },
+    "1575_01XX.dat": {
+      "size": 18672,
+      "sha256": "49decf6f3f82b7df94ff90c988a4fd356dfe938701b8014db37429f46ad73a06"
+    },
+    "1671_01XX.dat": {
+      "size": 18048,
+      "sha256": "a3c534416f744d5730ff9fadd3c53969317d64b54631dc1ed35b7d3b7c2c732d"
+    },
+    "1675_01XX.dat": {
+      "size": 18048,
+      "sha256": "f87a1a88484628fbaa7c27204de817a36fc24931129405a2b2cc3fd5fddcc1c8"
+    },
+    "1874_01XX.dat": {
+      "size": 19040,
+      "sha256": "ffde89e7819ac16a9eb1c8f0bc6dba0e980b508b2022507679d901c190f7cef8"
+    },
+    "1674_01XX.dat": {
+      "size": 18048,
+      "sha256": "e317310c5b9178d1c67b315470350d068c9da239312e5de36804ace9576b9130"
+    }
+  }
+}

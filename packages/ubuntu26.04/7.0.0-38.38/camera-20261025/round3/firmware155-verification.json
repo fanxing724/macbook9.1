@@ -1,0 +1,13 @@
+{
+  "firmware_release": "S2ISP-01.55.00",
+  "duration_seconds": 60,
+  "frames": 1802,
+  "exit_code": 0,
+  "SIF_errors": 8,
+  "Data_Abort": 0,
+  "IO_timeouts": 0,
+  "ffmpeg_warning_log_bytes": 0,
+  "encoder_time_base": "demux",
+  "fps_mode": "passthrough",
+  "images_saved": false
+}

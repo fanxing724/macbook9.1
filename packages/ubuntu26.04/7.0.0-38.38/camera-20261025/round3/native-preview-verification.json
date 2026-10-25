@@ -1,0 +1,14 @@
+{
+  "timer_close_30_seconds_exit_code": 0,
+  "SIGTERM_capture_was_running": true,
+  "SIGTERM_exit_code": 0,
+  "shutdown_seconds": 0.2846,
+  "stderr": "",
+  "IO_timeouts": 0,
+  "camera_DMA_faults": 0,
+  "Data_Abort": 0,
+  "SIF_errors": 0,
+  "camera_refcount_after_close": "0",
+  "helper_sha256": "30f3c7af5d7bd8d9c4afc4105ce8f0de63b2d9862a9e068133fe4bc8633d4eba",
+  "images_saved": false
+}

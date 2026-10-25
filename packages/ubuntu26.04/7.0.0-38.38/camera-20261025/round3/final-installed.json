@@ -1,0 +1,14 @@
+{
+  "module_path": "/lib/modules/7.0.0-38-generic/updates/dkms/facetimehd.ko.zst",
+  "disk_srcversion": "46E19D751500A2A061D503B",
+  "active_srcversion": "46E19D751500A2A061D503B",
+  "symbols_checked": 122,
+  "mismatches": [],
+  "firmware_sha256": "240ef2e991f1d089d8228ce11d92b66bfa4b3d7289ec4fee228b64a713024330",
+  "sound_srcversion": "7DE464D96696BDDA89F5433",
+  "source_files_match": {
+    "fthd_drv.c": true,
+    "fthd_ringbuf.c": true
+  },
+  "dkms_status": "facetimehd/0.7.0.1, 7.0.0-34-generic, x86_64: installed\nfacetimehd/0.7.0.1, 7.0.0-38-generic, x86_64: installed"
+}

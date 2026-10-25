@@ -1,0 +1,62 @@
+[
+  {
+    "size": "848x588",
+    "fps_requested": 15,
+    "exit_code": 0,
+    "frames": 900,
+    "elapsed_seconds": 60.328,
+    "SIF_errors": 13,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "min_delta_ms": 61.234,
+    "max_delta_ms": 71.921,
+    "median_delta_ms": 66.532,
+    "non_monotonic_timestamps": 0,
+    "gaps_over_200ms": 0
+  },
+  {
+    "size": "640x480",
+    "fps_requested": 15,
+    "exit_code": 0,
+    "frames": 900,
+    "elapsed_seconds": 60.345,
+    "SIF_errors": 0,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "min_delta_ms": 62.322,
+    "max_delta_ms": 70.692,
+    "median_delta_ms": 66.524,
+    "non_monotonic_timestamps": 0,
+    "gaps_over_200ms": 0
+  },
+  {
+    "size": "848x588",
+    "fps_requested": 30,
+    "exit_code": 0,
+    "frames": 1800,
+    "elapsed_seconds": 60.493,
+    "SIF_errors": 0,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "min_delta_ms": 21.678,
+    "max_delta_ms": 44.92,
+    "median_delta_ms": 33.31,
+    "non_monotonic_timestamps": 0,
+    "gaps_over_200ms": 0
+  },
+  {
+    "size": "640x480",
+    "fps_requested": 30,
+    "exit_code": 0,
+    "frames": 1800,
+    "elapsed_seconds": 60.35,
+    "SIF_errors": 0,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "min_delta_ms": 25.422,
+    "max_delta_ms": 40.551,
+    "median_delta_ms": 33.308,
+    "non_monotonic_timestamps": 0,
+    "gaps_over_200ms": 0
+  }
+]

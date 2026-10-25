@@ -1,0 +1,25 @@
+[
+  {
+    "pipeline": "gstreamer-userptr",
+    "exit_code": 1,
+    "requested_frames": 1800,
+    "wall_seconds": 0.165,
+    "EOS": false,
+    "SIF_errors": 0,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "image_or_video_saved": false,
+    "classification": "invalid test pipeline: downstream fakesink provides no import buffer pool; not evidence of driver failure"
+  },
+  {
+    "pipeline": "pipewire",
+    "exit_code": 0,
+    "requested_frames": 1800,
+    "wall_seconds": 60.736,
+    "EOS": true,
+    "SIF_errors": 7,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "image_or_video_saved": false
+  }
+]

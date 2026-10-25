@@ -1,0 +1,29 @@
+{
+  "renderer": "GStreamer Wayland, YUY2 to BGRx, single conversion thread, downstream leaky queue of two buffers, sync=false",
+  "camera_size": "640x480",
+  "camera_fps_requested": 30,
+  "user_initial_driver_preview": "picture moves and looks normal, but user then reports too choppy",
+  "user_after_renderer_switch": "now smooth",
+  "metrics_samples": 155,
+  "latest_metrics": {
+    "rendered": 4928,
+    "dropped": 455,
+    "current_fps": 29.94,
+    "average_fps": 27.49
+  },
+  "display_drop_policy": "late frames may be discarded to avoid accumulating display latency; window occlusion may throttle presentation",
+  "active_module_srcversion": "9A5C9B3DB2BA89880BDB11E",
+  "firmware_sha256": "240ef2e991f1d089d8228ce11d92b66bfa4b3d7289ec4fee228b64a713024330",
+  "experimental_crop_patch_retained": false,
+  "experimental_firmware155_retained": false,
+  "dynamic_exposure_retained": false,
+  "reboot_tested": false,
+  "suspend_resume_tested": false,
+  "images_saved": false,
+  "bounded_wayland_preview": {
+    "limit_seconds": 180,
+    "SIF_errors": 0,
+    "Data_Abort": 0,
+    "IO_timeouts": 1
+  }
+}

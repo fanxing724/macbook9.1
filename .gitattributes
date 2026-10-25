@@ -1,0 +1,2 @@
+# Patch context contains a space prefix before the original source indentation.
+patches/*.patch -whitespace
