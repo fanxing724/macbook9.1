@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "frames": 30,
+  "resolution": "640x480",
+  "fps_requested": 30,
+  "images_saved": false,
+  "last_frame_luminance_min": 0,
+  "last_frame_luminance_max": 242,
+  "last_frame_luminance_mean": 104.62,
+  "last_frame_luminance_stddev": 59.27,
+  "different_first_last_frames": true
+}

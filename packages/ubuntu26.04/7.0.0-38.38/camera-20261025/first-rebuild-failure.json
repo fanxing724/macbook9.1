@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25",
+  "stage": "first rebuild, before upstream update",
+  "short_capture_passed": true,
+  "sustained_preview_failed": true,
+  "user_report": "preview froze",
+  "kernel_events": [
+    {
+      "time_local": "23:23:00",
+      "event": "SIF errors begin during preview"
+    },
+    {
+      "time_local": "23:28:29",
+      "event": "firmware Data Abort"
+    },
+    {
+      "time_local": "23:32:06",
+      "event": "IO timeout"
+    }
+  ],
+  "first_rebuild_is_complete_fix": false,
+  "image_or_video_saved": false
+}

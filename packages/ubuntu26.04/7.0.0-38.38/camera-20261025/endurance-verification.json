@@ -1,0 +1,15 @@
+{
+  "size": "640x480",
+  "fps_requested": 30,
+  "duration_output_seconds": 600,
+  "frames": 18013,
+  "fps_reported": 30.02,
+  "exit_code": 0,
+  "progress": "end",
+  "SIF_errors": 116,
+  "Data_Abort": 0,
+  "IO_timeouts": 0,
+  "ffmpeg_repeated_dts_warnings": true,
+  "images_saved": false,
+  "meaning": "completed continuous capture; residual sensor and timestamp warnings remain; human preview acceptance pending"
+}

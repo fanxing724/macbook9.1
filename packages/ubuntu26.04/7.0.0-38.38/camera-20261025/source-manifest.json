@@ -1,0 +1,120 @@
+{
+  "upstream_commit": "6dc8cd85e87993ff21cb01eb333ff42afb058551",
+  "files": [
+    {
+      "file": ".gitignore",
+      "sha256": "4af8ca4573457639ce1726d5494c95c732f1c3d11deff5fd762ce8fedae6cfbf",
+      "installed_source_matches": true
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "b499eddebda05a8859e32b820a64577d91f1de2b52efa2a1575a2cb4000bc259",
+      "installed_source_matches": true
+    },
+    {
+      "file": "Makefile",
+      "sha256": "2fea3984b66497fcfe1a9a17f97c99ad08b312c48f8958a388d1029682d921f2",
+      "installed_source_matches": true
+    },
+    {
+      "file": "README.md",
+      "sha256": "9267dc2c07b40dc527833bab54f9f8610c31cec2c1d293f107df28582e33f8eb",
+      "installed_source_matches": true
+    },
+    {
+      "file": "dkms.conf",
+      "sha256": "7bad81094e1515e3e3d5b7ae1d4eea5d5c29a761fa22c2a8f333088f13d6e62b",
+      "installed_source_matches": true
+    },
+    {
+      "file": "firmware/README",
+      "sha256": "413f7d8b633ff6470bf0e32c2372f4e736a9c95d9100513727c6c46d9b9dfe18",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_buffer.c",
+      "sha256": "4aac6034a29b57cb4ef0c1a325f64133f35b836cc4bc7800ae5d9b806d260a47",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_buffer.h",
+      "sha256": "5fc02cddf98104e56f0ffdc4f0c810790a0e1d5af181a00c0cca0b445148d25d",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_ddr.c",
+      "sha256": "2c8c515754dba6299d8eefcb090fe0f7981236160dd85df2cbeb43c96443d199",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_ddr.h",
+      "sha256": "8a3210d48ab843e731b92da1f8ec7cf9bcb851a23030ca232d62fd6f06c48ed1",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_debugfs.c",
+      "sha256": "0cf291e447986b803647f0f5bc9cbdfb2816098c9b4810985a0b6d089c04de24",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_debugfs.h",
+      "sha256": "357fbf98ad6cfc66414e52c5aaf02aceee4ef9df2d61189d1591ec7350b5900e",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_drv.c",
+      "sha256": "af8e0ed18922da6942664c463494d8ccc642a306a97c469bf8f99c8e4868332c",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_drv.h",
+      "sha256": "9ce4552cd6a920fc6325271bcd886a44dc85398c0961b08efbf974df0dc50177",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_hw.c",
+      "sha256": "383ae0c3c5739ad21c2f0aae7ef912992f6aae3da80600a0e7c446950ba3abad",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_hw.h",
+      "sha256": "d907fa2dfad9a3a12ef8959c3f6193071d984d8bdb585efc02e1110217297023",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_isp.c",
+      "sha256": "34ea50d81a0155d86230ff5cad77a16db9ce5300f12a4d1967dca470b2a58d8f",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_isp.h",
+      "sha256": "fb693fa27d42e6e3aa4cecc39dfb93e58f83bdf9e1d017a7fc6d42f43d4b962a",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_reg.h",
+      "sha256": "f30e9278edf8536659e3739772e0295c9b081819aecf19425991940bd57232a1",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_ringbuf.c",
+      "sha256": "29e18ee6c9f56ea2199c3ccd058abe41868a036ec54b2ee3cfecfc4995005c60",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_ringbuf.h",
+      "sha256": "9edb83c7e5504725f17c75ac288ea6933d50e9daee237c47b14aa74366d1a08c",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_v4l2.c",
+      "sha256": "0ec74ad67404cca640834fb258049fd713f14d21848d5a735daf3febf91d8f74",
+      "installed_source_matches": true
+    },
+    {
+      "file": "fthd_v4l2.h",
+      "sha256": "7ce3de589008926c747fc4ba3640301c8c8589fa6a22e7336e0d437a2915ba56",
+      "installed_source_matches": true
+    }
+  ]
+}

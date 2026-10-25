@@ -1,0 +1,12 @@
+{
+  "upstream": "https://github.com/patjak/facetimehd",
+  "commit": "6dc8cd85e87993ff21cb01eb333ff42afb058551",
+  "kernel": "7.0.0-38-generic",
+  "ubuntu_kernel_package": "7.0.0-38.38",
+  "srcversion": "9A5C9B3DB2BA89880BDB11E",
+  "symbols_checked": 122,
+  "mismatches": [],
+  "firmware_sha256": "240ef2e991f1d089d8228ce11d92b66bfa4b3d7289ec4fee228b64a713024330",
+  "firmware_version": "5.60.0",
+  "endurance_status": "completed_with_residual_warnings"
+}

@@ -1,0 +1,318 @@
+{
+  "old": {
+    "symbols": 116,
+    "mismatches": [
+      {
+        "symbol": "vb2_ioctl_querybuf",
+        "actual": "0x8e190266",
+        "expected": "0xdd451891"
+      },
+      {
+        "symbol": "pci_set_power_state",
+        "actual": "0x9bb6cd71",
+        "expected": "0x3fe2321a"
+      },
+      {
+        "symbol": "v4l2_fh_open",
+        "actual": "0x9472fe91",
+        "expected": "0x23b6f3e4"
+      },
+      {
+        "symbol": "pci_unregister_driver",
+        "actual": "0x0f8cf710",
+        "expected": "0x246caf93"
+      },
+      {
+        "symbol": "pci_read_config_dword",
+        "actual": "0x605f867f",
+        "expected": "0x44ed41cc"
+      },
+      {
+        "symbol": "debugfs_create_devm_seqfile",
+        "actual": "0x50fde494",
+        "expected": "0x2329cf41"
+      },
+      {
+        "symbol": "video_devdata",
+        "actual": "0xb6f141b6",
+        "expected": "0xd582496d"
+      },
+      {
+        "symbol": "vb2_fop_release",
+        "actual": "0xede3de60",
+        "expected": "0x5a27d315"
+      },
+      {
+        "symbol": "pci_disable_link_state",
+        "actual": "0xd933dcd1",
+        "expected": "0x9c59321c"
+      },
+      {
+        "symbol": "_dev_info",
+        "actual": "0xee99353a",
+        "expected": "0x88b75d86"
+      },
+      {
+        "symbol": "vb2_plane_cookie",
+        "actual": "0xf3428121",
+        "expected": "0x55e3db02"
+      },
+      {
+        "symbol": "vb2_ioctl_dqbuf",
+        "actual": "0x8e190266",
+        "expected": "0xdd451891"
+      },
+      {
+        "symbol": "pci_enable_msi",
+        "actual": "0xc3f09d72",
+        "expected": "0x8b7ac6bb"
+      },
+      {
+        "symbol": "_dev_err",
+        "actual": "0xee99353a",
+        "expected": "0x88b75d86"
+      },
+      {
+        "symbol": "simple_open",
+        "actual": "0xcaaf8988",
+        "expected": "0xe2f36101"
+      },
+      {
+        "symbol": "vb2_ioctl_create_bufs",
+        "actual": "0x4f663147",
+        "expected": "0x849ae08d"
+      },
+      {
+        "symbol": "debugfs_remove",
+        "actual": "0xa02d01f2",
+        "expected": "0x4f8886f9"
+      },
+      {
+        "symbol": "vb2_buffer_done",
+        "actual": "0x8877f5de",
+        "expected": "0xd7685b4d"
+      },
+      {
+        "symbol": "v4l2_ctrl_subscribe_event",
+        "actual": "0x836f870f",
+        "expected": "0x14d5c202"
+      },
+      {
+        "symbol": "video_unregister_device",
+        "actual": "0x08fe775d",
+        "expected": "0xae89e136"
+      },
+      {
+        "symbol": "vb2_ioctl_qbuf",
+        "actual": "0x8e190266",
+        "expected": "0xdd451891"
+      },
+      {
+        "symbol": "vb2_fop_mmap",
+        "actual": "0x1c3ba702",
+        "expected": "0x61bd55a8"
+      },
+      {
+        "symbol": "video_device_alloc",
+        "actual": "0x70e7fc97",
+        "expected": "0x8e158137"
+      },
+      {
+        "symbol": "default_llseek",
+        "actual": "0xded3fe4f",
+        "expected": "0xc8167060"
+      },
+      {
+        "symbol": "_dev_warn",
+        "actual": "0xee99353a",
+        "expected": "0x88b75d86"
+      },
+      {
+        "symbol": "pci_set_master",
+        "actual": "0xcf5bf3c8",
+        "expected": "0xe7d8631f"
+      },
+      {
+        "symbol": "vb2_fop_read",
+        "actual": "0xe54b51b1",
+        "expected": "0x1174c387"
+      },
+      {
+        "symbol": "v4l2_device_register",
+        "actual": "0x38748cda",
+        "expected": "0x98913986"
+      },
+      {
+        "symbol": "dma_set_coherent_mask",
+        "actual": "0x9ff03d01",
+        "expected": "0xbffd4626"
+      },
+      {
+        "symbol": "__video_register_device",
+        "actual": "0x6a685420",
+        "expected": "0x966f0c5a"
+      },
+      {
+        "symbol": "__kmalloc_cache_noprof",
+        "actual": "0xf3809246",
+        "expected": "0xce56ea17"
+      },
+      {
+        "symbol": "seq_printf",
+        "actual": "0xeaee2b79",
+        "expected": "0x5fe49b2b"
+      },
+      {
+        "symbol": "vb2_ioctl_streamon",
+        "actual": "0x73c317f2",
+        "expected": "0xf7a43bfd"
+      },
+      {
+        "symbol": "vb2_fop_poll",
+        "actual": "0x495e534b",
+        "expected": "0x9ea53fd8"
+      },
+      {
+        "symbol": "v4l2_ctrl_new_std",
+        "actual": "0xb58c42ce",
+        "expected": "0x2c7cfe4d"
+      },
+      {
+        "symbol": "debugfs_create_file_full",
+        "actual": "0x3ad65135",
+        "expected": "0x6fb8817a"
+      },
+      {
+        "symbol": "v4l2_ctrl_handler_free",
+        "actual": "0x2653c5e2",
+        "expected": "0xa44ac2c6"
+      },
+      {
+        "symbol": "v4l2_device_unregister",
+        "actual": "0xb7e28010",
+        "expected": "0xc1f616a0"
+      },
+      {
+        "symbol": "pci_disable_device",
+        "actual": "0xcf5bf3c8",
+        "expected": "0xe7d8631f"
+      },
+      {
+        "symbol": "vb2_wait_for_all_buffers",
+        "actual": "0x42687e39",
+        "expected": "0xbc8f80b9"
+      },
+      {
+        "symbol": "dma_set_mask",
+        "actual": "0x9ff03d01",
+        "expected": "0xbffd4626"
+      },
+      {
+        "symbol": "video_device_release",
+        "actual": "0x08fe775d",
+        "expected": "0xae89e136"
+      },
+      {
+        "symbol": "debugfs_create_dir",
+        "actual": "0xb6c6b348",
+        "expected": "0x9e6a2c13"
+      },
+      {
+        "symbol": "pci_release_region",
+        "actual": "0x36129f7a",
+        "expected": "0x92466011"
+      },
+      {
+        "symbol": "pci_write_config_dword",
+        "actual": "0x18b96c6f",
+        "expected": "0x011a1eab"
+      },
+      {
+        "symbol": "v4l2_event_unsubscribe",
+        "actual": "0x25daf963",
+        "expected": "0xbf62d904"
+      },
+      {
+        "symbol": "kmalloc_caches",
+        "actual": "0x255b624c",
+        "expected": "0xa65b83f9"
+      },
+      {
+        "symbol": "vb2_ioctl_reqbufs",
+        "actual": "0xc122a55b",
+        "expected": "0x7b44aee7"
+      },
+      {
+        "symbol": "vb2_queue_init",
+        "actual": "0x4927e329",
+        "expected": "0xb2926d78"
+      },
+      {
+        "symbol": "vb2_dma_sg_memops",
+        "actual": "0xa6aaa7f0",
+        "expected": "0x13d580b2"
+      },
+      {
+        "symbol": "pci_request_region",
+        "actual": "0x41b12aec",
+        "expected": "0xed9c2bc8"
+      },
+      {
+        "symbol": "video_ioctl2",
+        "actual": "0x3d8af0b3",
+        "expected": "0xba8d0b45"
+      },
+      {
+        "symbol": "is_acpi_device_node",
+        "actual": "0x2f7ae16c",
+        "expected": "0x86862d8c"
+      },
+      {
+        "symbol": "pci_enable_device",
+        "actual": "0xe645fd1f",
+        "expected": "0x0d1ace87"
+      },
+      {
+        "symbol": "vb2_ioctl_streamoff",
+        "actual": "0x73c317f2",
+        "expected": "0xf7a43bfd"
+      },
+      {
+        "symbol": "vb2_ioctl_expbuf",
+        "actual": "0xf143b991",
+        "expected": "0x2b9ee16e"
+      },
+      {
+        "symbol": "request_firmware",
+        "actual": "0x6145a04b",
+        "expected": "0xedb46aee"
+      },
+      {
+        "symbol": "__pci_register_driver",
+        "actual": "0xa963f372",
+        "expected": "0x7eec82be"
+      },
+      {
+        "symbol": "v4l2_ctrl_handler_init_class",
+        "actual": "0x40acbf04",
+        "expected": "0x94d6684a"
+      },
+      {
+        "symbol": "pci_disable_msi",
+        "actual": "0x4e487636",
+        "expected": "0x7f1956e2"
+      },
+      {
+        "symbol": "module_layout",
+        "actual": "0xd954c786",
+        "expected": "0xe9196a28"
+      }
+    ],
+    "module_layout": "0xd954c786"
+  },
+  "new": {
+    "symbols": 117,
+    "mismatches": [],
+    "module_layout": "0xe9196a28"
+  }
+}

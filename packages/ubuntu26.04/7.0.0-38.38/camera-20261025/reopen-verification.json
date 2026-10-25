@@ -1,0 +1,44 @@
+[
+  {
+    "size": "640x480",
+    "fps_requested": 15,
+    "duration_requested_seconds": 15,
+    "duration_wall_seconds": 16.35,
+    "exit_code": 0,
+    "sample_frames_at_1fps": 15,
+    "distinct_sample_hashes": 15,
+    "SIF_errors": 1,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "images_saved": false,
+    "last_sample_luminance_stddev": 71.46
+  },
+  {
+    "size": "848x588",
+    "fps_requested": 30,
+    "duration_requested_seconds": 15,
+    "duration_wall_seconds": 16.38,
+    "exit_code": 0,
+    "sample_frames_at_1fps": 15,
+    "distinct_sample_hashes": 15,
+    "SIF_errors": 2,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "images_saved": false,
+    "last_sample_luminance_stddev": 72.59
+  },
+  {
+    "size": "640x480",
+    "fps_requested": 30,
+    "duration_requested_seconds": 15,
+    "duration_wall_seconds": 16.32,
+    "exit_code": 0,
+    "sample_frames_at_1fps": 15,
+    "distinct_sample_hashes": 15,
+    "SIF_errors": 0,
+    "Data_Abort": 0,
+    "IO_timeouts": 0,
+    "images_saved": false,
+    "last_sample_luminance_stddev": 71.66
+  }
+]
