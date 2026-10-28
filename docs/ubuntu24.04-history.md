@@ -163,6 +163,10 @@ sudo ./install.bluetooth.sh -u && sudo depmod -a
 
 1. **内核升级**：三个 DKMS 模块（facetimehd / macbook12-bluetooth / macbook12-audio）都会自动重编。
    升级后**第一次开机若扬声器异常**，先 `dkms status` + 看 UBSAN，多半是 #66 类版本问题。
+   注意：`uname -r` 不变的内核包点更新/换源（如 24.04→26.04 时 `7.0.0-38.38~24.04.4` → `7.0.0-38.38`）
+   **不会触发 DKMS 重编**，旧模块会以 `disagrees about version of symbol module_layout` 被拒载；
+   `dkms status` 显示 installed 也不代表可加载。2026-10 三个模块相继中招，处置见
+   [ubuntu26.04-bluetooth.md](ubuntu26.04-bluetooth.md)。
 2. **SOFA/AVS**：此机内核默认走 legacy HDA，`snd_soc_avs`/`snd_sof_*` 模块虽加载但不占声卡，
    不要被"驱动冲突"带偏方向。
 3. **热重载声卡模块** 可能触发 `modprobe: exited with irqs disabled` oops——要换驱动请用 `reboot`，
